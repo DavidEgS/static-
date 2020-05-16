@@ -1,8 +1,7 @@
 import flats from '../flats';
 
 export function setFlats() {
-  //TODO: API call
-
+  // TODO: API call
   return {
     type: 'SET_FLATS',
     payload: flats
@@ -10,7 +9,6 @@ export function setFlats() {
 }
 
 export function selectFlat(flat) {
-
   return {
     type: 'SELECT_FLAT',
     payload: flat

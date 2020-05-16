@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Flatlist from '../containers/flatlist';
-import Map from '../containers/map';
+import FlatList from '../containers/flatlist';
 
 const App = () => {
   return (
     <div className="row">
-      <Flatlist />
-      <Map />
+      <FlatList />
     </div>
   );
 };
