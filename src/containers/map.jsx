@@ -11,30 +11,34 @@ class Map extends Component {
       borderRadius: '50%'
     };
 
-    const { selectedFlat } = this.props;
+    const { selectedFlat, flats } = this.props;
+
+    let marker = null;
+    let center = {
+      lat: 48.884211,
+      lng: 2.34689
+    };
 
     if (selectedFlat) {
-      const marker = <div style={style} lat={selectedFlat.lat} lng={selectedFlat.lng} />;
-      const center = {
-        lat: selectedFlat.lat,
-        lng: selectedFlat.lng
+      marker = <div style={style} lat={selectedFlat.lat} lng={selectedFlat.lng} />;
+      center = {
+        lat: flats[0].lat,
+        lng: flats[0].lng
       };
     }
 
     return (
       <div className="col-sm-5" style={{ height: '100vh' }}>
-        <GoogleMapReact
-          center={center}
-          defaultZoom={15}>
+        <GoogleMapReact center={center} defaultZoom={15}>
           {marker}
         </GoogleMapReact>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { selectedFlat: state.selectedFlat };
+  return { selectedFlat: state.selectedFlat, flats: state.flats };
 };
 
 export default connect(mapStateToProps)(Map);
